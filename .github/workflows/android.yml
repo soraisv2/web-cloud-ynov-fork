@@ -1,4 +1,4 @@
-name: build app CI
+name: build android app CI
 
 on:
   push:
@@ -27,4 +27,4 @@ jobs:
         run: yarn install
 
       - name: 🚀 Build app
-        run: eas build --non-interactive
+        run: eas build --platform android --non-interactive
