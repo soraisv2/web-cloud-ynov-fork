@@ -1,4 +1,4 @@
-name: build android app CI
+name: build app CI
 
 on:
   push:
@@ -7,14 +7,19 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        node-version: [20.x]
+
     steps:
       - name: 🏗 Setup repo
         uses: actions/checkout@v3
 
-      - name: 🏗 Setup Node
+      - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
-          node-version: 18.x
+          node-version: ${{ matrix.node-version }}
           cache: yarn
 
       - name: 🏗 Setup EAS
@@ -27,4 +32,4 @@ jobs:
         run: yarn install
 
       - name: 🚀 Build app
-        run: eas build --platform android --non-interactive
+        run: eas build --platform android --non-interactive --no-wait
