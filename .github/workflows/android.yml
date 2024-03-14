@@ -31,12 +31,15 @@ jobs:
       - name: 📦 Install dependencies
         run: yarn install
 
+
       - name: 🚀 Build app
         run: eas build --platform android --non-interactive --no-wait
 
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v3
+      - name: Build web app
+        run: yarn predeploy
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2
         with:
