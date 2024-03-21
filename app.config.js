@@ -1,4 +1,5 @@
-{
+import 'dotenv/config';
+export default {
   "expo": {
     "experiments": {
       "baseUrl": "/web-cloud-ynov"
@@ -33,7 +34,13 @@
     },
     "extra": {
       "eas": {
-        "projectId": "a760bc3a-137b-4049-b05f-c14e36f4b827"
+        "projectId": "a760bc3a-137b-4049-b05f-c14e36f4b827",
+        firebaseApiKey: process.env.FIREBASE_API_KEY,
+        firebaseAuthDomain: process.env.FIREBASE_AUTH_DOMAIN,
+        firebaseProjectId: process.env.FIREBASE_PROJECT_ID,
+        firebaseStorageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+        firebaseMessagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+        firebaseAppId: process.env.FIREBASE_APP_ID
       }
     }
   }
