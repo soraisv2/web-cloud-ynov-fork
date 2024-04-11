@@ -14,7 +14,7 @@ export default function App() {
       <TextInput
         style={styles.input}
         onChangeText={onChangeEmail}
-        value={email}
+        value={email}  
       ></TextInput>
       <Text>Password</Text>
       <TextInput
